@@ -1,0 +1,471 @@
+<div class="surface-0 overflow-hidden">
+
+  <!-- ===== NAVBAR ===== -->
+  <div
+    id="home"
+    class="bg-surface-0/90 dark:bg-surface-900/90 backdrop-blur-md px-6 lg:px-20 mx-0 my-0 py-0 flex items-center justify-between fixed top-0 left-0 right-0 z-50 border-b border-transparent"
+    style="min-height: 72px; transition: border-color 0.3s, background 0.3s;"
+  >
+    <!-- Logo -->
+    <a class="flex items-center gap-3" href="#">
+      <img
+        [src]="isDarkMode ? 'assets/logo_white_transparent.png' : 'assets/logo_blue_transparent.png'"
+        alt="Omnitech"
+        class="h-9"
+      />
+    </a>
+
+    <!-- Mobile toggle -->
+    <a
+      pStyleClass="#navmenu"
+      enterFromClass="hidden"
+      leaveToClass="hidden"
+      class="cursor-pointer block lg:hidden text-surface-700 dark:text-surface-100 select-none"
+    >
+      <i class="pi pi-bars text-3xl"></i>
+    </a>
+
+    <!-- Nav links -->
+    <div
+      id="navmenu"
+      class="items-center grow justify-between hidden lg:flex absolute lg:static w-full bg-surface-0 dark:bg-surface-900 left-0 top-full z-20 rounded-border"
+    >
+      <ul class="list-none p-0 m-0 flex lg:items-center select-none flex-col lg:flex-row cursor-pointer">
+        <li>
+          <a pRipple href="#home"
+            class="flex m-0 md:ml-5 px-0 py-4 text-surface-700 dark:text-surface-200 font-medium hover:text-primary-500 transition-colors no-underline text-sm">
+            {{ t().nav.home }}
+          </a>
+        </li>
+        <li>
+          <a pRipple href="#features"
+            class="flex m-0 md:ml-5 px-0 py-4 text-surface-700 dark:text-surface-200 font-medium hover:text-primary-500 transition-colors no-underline text-sm">
+            {{ t().nav.features }}
+          </a>
+        </li>
+        <li>
+          <a pRipple href="#portfolio"
+            class="flex m-0 md:ml-5 px-0 py-4 text-surface-700 dark:text-surface-200 font-medium hover:text-primary-500 transition-colors no-underline text-sm">
+            {{ t().nav.portfolio }}
+          </a>
+        </li>
+        <li>
+          <a pRipple href="#contact"
+            class="flex m-0 md:ml-5 px-0 py-4 text-surface-700 dark:text-surface-200 font-medium hover:text-primary-500 transition-colors no-underline text-sm">
+            {{ t().nav.contact }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="flex justify-between lg:items-center mt-3 lg:mt-0 border-t border-surface md:border-none w-full lg:w-auto pl-4 lg:pl-0 pb-4 lg:pb-0 gap-2">
+        <button pButton pRipple type="button"
+          [icon]="isDarkMode ? 'pi pi-sun' : 'pi pi-moon'"
+          rounded text (click)="toggleDarkMode()"
+          class="!text-surface-700 dark:!text-surface-100">
+        </button>
+        <button pButton pRipple type="button"
+          [label]="lang() === 'pt' ? 'EN' : 'PT'"
+          rounded text (click)="toggleLang()"
+          class="!text-surface-700 dark:!text-surface-100 font-bold text-xs"
+          style="letter-spacing: 0.06em">
+        </button>
+        <a pButton pRipple [label]="t().nav.register" rounded href="#contact"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <div
+    class="grid grid-cols-1 lg:grid-cols-2 gap-0 py-6 px-6 lg:px-20 overflow-hidden"
+    style="
+      min-height: 100vh;
+      padding-top: 120px;
+      background:
+        linear-gradient(0deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0) 70%),
+        radial-gradient(77% 126% at 90% -10%, var(--p-primary-300) 0%, transparent 80%);
+    "
+  >
+    <!-- Left: copy -->
+    <div [@fadeSlide]="lang()"
+      class="flex flex-col justify-center items-start col-span-1 gap-7 py-6 lg:py-20 pr-0 lg:pr-20">
+
+      <!-- Badge -->
+      <span
+        class="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-950 text-primary-600 dark:text-primary-300 font-bold px-4 py-2 rounded-full text-xs border border-primary-200 dark:border-primary-800"
+        style="letter-spacing: 0.08em">
+        <i class="pi pi-bolt text-xs"></i>
+        {{ t().hero.badge }}
+      </span>
+
+      <!-- Title -->
+      <h1 class="font-extrabold text-5xl lg:text-6xl text-surface-900 dark:text-surface-0 leading-tight m-0">
+        {{ t().hero.title1 }}<br />
+        <span class="text-primary-500">{{ t().hero.title2 }}</span><br />
+        {{ t().hero.title3 }}
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-xl text-surface-600 dark:text-surface-300 leading-relaxed m-0 max-w-xl">
+        {{ t().hero.subtitle }}
+      </p>
+
+      <!-- Pills -->
+      <div class="flex flex-wrap gap-3">
+        @for (pill of t().hero.pills; track pill) {
+          <span
+            class="inline-flex items-center gap-2 bg-surface-100 dark:bg-surface-800 text-surface-700 dark:text-surface-200 text-sm font-medium px-4 py-2 rounded-full border border-surface-200 dark:border-surface-700">
+            <i class="pi pi-check text-primary-500 text-xs"></i>
+            {{ pill }}
+          </span>
+        }
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex gap-4 flex-wrap">
+        <a pButton pRipple [label]="t().hero.cta1" size="large" rounded href="#contact"></a>
+        <a pButton pRipple [label]="t().hero.cta2" size="large" rounded outlined href="#portfolio"></a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="flex gap-8 flex-wrap pt-2">
+        @for (stat of t().stats; track stat.label) {
+          <div class="flex flex-col gap-1">
+            <span class="text-3xl font-extrabold text-primary-500">{{ stat.value }}</span>
+            <span class="text-xs text-surface-400 dark:text-surface-500 font-medium uppercase tracking-wider">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Right: browser + stats mockup -->
+    <div [@fadeSlide]="lang()"
+      class="flex items-center justify-center col-span-1 py-6 lg:py-0 overflow-hidden">
+      <div class="w-full max-w-xl flex flex-col gap-4">
+
+        <!-- Browser mockup -->
+        <div class="rounded-2xl shadow-2xl overflow-hidden border border-surface-200 dark:border-surface-700">
+          <!-- Chrome bar -->
+          <div class="flex items-center gap-2 px-4 py-3 bg-surface-100 dark:bg-surface-800 border-b border-surface-200 dark:border-surface-700">
+            <span class="w-3 h-3 rounded-full bg-red-400"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+            <span class="w-3 h-3 rounded-full bg-green-400"></span>
+            <div class="flex-1 mx-3 flex items-center gap-2 bg-surface-0 dark:bg-surface-900 rounded-lg px-3 h-7">
+              <i class="pi pi-lock text-surface-400 dark:text-surface-500" style="font-size:10px"></i>
+              <span class="text-surface-400 dark:text-surface-500 text-xs">omnitech.ao</span>
+            </div>
+          </div>
+          <!-- Page content -->
+          <div class="bg-surface-0 dark:bg-surface-900" style="overflow:hidden">
+            <!-- Navbar strip -->
+            <div class="flex items-center justify-between px-5 py-3 border-b border-surface-100 dark:border-surface-800">
+              <div class="flex items-center gap-2">
+                <img src="assets/favicon_32.png" alt="" class="w-5 h-5" />
+                <div class="h-3 w-16 rounded bg-surface-300 dark:bg-surface-600"></div>
+              </div>
+              <div class="flex gap-4">
+                @for (n of [1,2,3,4]; track n) {
+                  <div class="h-2 w-8 rounded bg-surface-200 dark:bg-surface-700"></div>
+                }
+              </div>
+              <div class="h-6 w-16 rounded-full bg-primary-500"></div>
+            </div>
+            <!-- Hero strip -->
+            <div class="px-5 py-5 flex gap-4">
+              <div class="flex-1 flex flex-col gap-3 justify-center">
+                <div class="h-3 w-3/4 rounded bg-surface-800 dark:bg-surface-100"></div>
+                <div class="h-3 w-1/2 rounded bg-primary-400"></div>
+                <div class="h-2 w-full rounded bg-surface-200 dark:bg-surface-700 mt-1"></div>
+                <div class="h-2 w-5/6 rounded bg-surface-200 dark:bg-surface-700"></div>
+                <div class="flex gap-2 mt-2">
+                  <div class="h-7 w-20 rounded-full bg-primary-500"></div>
+                  <div class="h-7 w-20 rounded-full border border-primary-300 dark:border-primary-700"></div>
+                </div>
+              </div>
+              <div class="w-2/5 rounded-xl bg-gradient-to-br from-sky-100 to-sky-200 dark:from-sky-900 dark:to-sky-800 flex items-center justify-center" style="min-height:100px">
+                <i class="pi pi-globe text-4xl text-primary-400 dark:text-primary-300"></i>
+              </div>
+            </div>
+            <!-- Service cards strip -->
+            <div class="px-5 pb-4 grid grid-cols-3 gap-3">
+              @for (item of mockServices; track item.icon) {
+                <div class="rounded-xl bg-surface-50 dark:bg-surface-800 p-3 flex flex-col gap-2 border border-surface-100 dark:border-surface-700">
+                  <div class="w-7 h-7 rounded-lg bg-primary-100 dark:bg-primary-900 flex items-center justify-center">
+                    <i [class]="item.icon + ' text-primary-500 text-sm'"></i>
+                  </div>
+                  <div class="h-2 w-3/4 rounded bg-surface-300 dark:bg-surface-600"></div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats card -->
+        <div class="rounded-2xl border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 px-6 py-5 grid grid-cols-4 gap-4 shadow-md">
+          @for (stat of t().stats; track stat.label) {
+            <div class="flex flex-col items-center gap-1">
+              <span class="text-primary-500 font-extrabold text-lg">{{ stat.value }}</span>
+              <span class="text-surface-400 text-xs font-medium text-center">{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FEATURES ===== -->
+  <div id="features" class="px-6 lg:px-20 py-16 lg:py-24 bg-surface-50 dark:bg-surface-800">
+    <div [@fadeSlide]="lang()" class="text-center mb-14">
+      <span class="text-primary-500 font-bold text-xs tracking-widest uppercase">
+        {{ t().features.label }}
+      </span>
+      <h2 class="text-4xl font-extrabold text-surface-900 dark:text-surface-0 mt-4 mb-4">
+        {{ t().features.title }}
+      </h2>
+      <p class="text-surface-500 dark:text-surface-300 text-xl max-w-2xl mx-auto leading-relaxed">
+        {{ t().features.subtitle }}
+      </p>
+    </div>
+
+    <div [@fadeSlide]="lang()" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (feature of features(); track feature.title) {
+        <div
+          class="bg-surface-0 dark:bg-surface-900 rounded-2xl p-8 border border-surface-200 dark:border-surface-700 shadow flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-default">
+          <div class="flex items-center justify-between">
+            <div class="w-14 h-14 rounded-xl flex items-center justify-center bg-primary-50 dark:bg-primary-900">
+              <i [class]="feature.icon + ' text-3xl text-primary-500'"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-bold text-surface-900 dark:text-surface-0 m-0">
+            {{ feature.title }}
+          </h3>
+          <p class="text-surface-500 dark:text-surface-400 m-0 leading-relaxed text-sm">
+            {{ feature.description }}
+          </p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <div id="portfolio" class="px-6 lg:px-20 py-16 lg:py-24 bg-surface-0 dark:bg-surface-900">
+    <div [@fadeSlide]="lang()" class="text-center mb-12">
+      <span class="text-primary-500 font-bold text-xs tracking-widest uppercase">
+        {{ t().portfolio.label }}
+      </span>
+      <h2 class="text-4xl font-extrabold text-surface-900 dark:text-surface-0 mt-4 mb-4">
+        {{ t().portfolio.title }}
+      </h2>
+      <p class="text-surface-500 dark:text-surface-300 text-xl leading-relaxed">
+        {{ t().portfolio.subtitle }}
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex gap-3 justify-center mb-12 flex-wrap">
+      @for (tab of portfolioTabs(); track tab; let i = $index) {
+        <button
+          pButton pRipple
+          [label]="tab"
+          [rounded]="true"
+          [outlined]="activePortfolioTab() !== i"
+          (click)="setPortfolioTab(i)"
+          [class]="activePortfolioTab() === i ? '' : '!text-surface-700 dark:!text-surface-200 !border-surface-300 dark:!border-surface-600'"
+          size="small">
+        </button>
+      }
+    </div>
+
+    <!-- Grid -->
+    <div [@fadeSlide]="activePortfolioTab()" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (item of filteredPortfolio(); track item.title) {
+        <div
+          class="rounded-2xl overflow-hidden border border-surface-200 dark:border-surface-700 bg-surface-0 dark:bg-surface-900 shadow hover:shadow-xl hover:-translate-y-1.5 transition-all duration-200 cursor-pointer">
+          <!-- Visual header -->
+          <div class="h-40 flex items-center justify-center relative"
+            [style.background]="'linear-gradient(135deg, ' + item.color + '22 0%, ' + item.color + '44 100%)'">
+            <div class="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg"
+              [style.background]="item.color">
+              <i [class]="'pi ' + getPortfolioIcon(item.type) + ' text-3xl text-white'"></i>
+            </div>
+            <span
+              class="absolute top-4 right-4 text-xs font-bold text-white rounded-full px-3 py-1"
+              [style.background]="item.color">
+              {{ item.tag }}
+            </span>
+          </div>
+          <!-- Content -->
+          <div class="p-6">
+            <p class="font-bold text-surface-900 dark:text-surface-0 m-0 mb-2">{{ item.title }}</p>
+            <p class="text-sm text-surface-500 dark:text-surface-400 m-0 leading-relaxed">{{ item.description }}</p>
+            <div class="flex items-center gap-2 mt-4 text-primary-500 text-sm font-semibold">
+              <span>{{ lang() === 'pt' ? 'Ver projeto' : 'View project' }}</span>
+              <i class="pi pi-arrow-right text-xs"></i>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- ===== CONTACT ===== -->
+  <div id="contact" class="px-6 lg:px-20 py-16 lg:py-24 bg-surface-50 dark:bg-surface-800">
+    <div [@fadeSlide]="lang()" class="text-center mb-14">
+      <span class="text-primary-500 font-bold text-xs tracking-widest uppercase">
+        {{ t().contact.label }}
+      </span>
+      <h2 class="text-4xl font-extrabold text-surface-900 dark:text-surface-0 mt-4 mb-4">
+        {{ t().contact.title }}
+      </h2>
+      <p class="text-surface-500 dark:text-surface-300 text-xl leading-relaxed">
+        {{ t().contact.subtitle }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
+
+      <!-- Contact info -->
+      <div [@fadeSlide]="lang()" class="lg:col-span-2 flex flex-col gap-5">
+        @for (info of t().contact.info; track info.label) {
+          <div class="flex items-center gap-4 bg-surface-0 dark:bg-surface-900 rounded-2xl p-5 border border-surface-200 dark:border-surface-700">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-primary-50 dark:bg-primary-900 shrink-0">
+              <i [class]="info.icon + ' text-xl text-primary-500'"></i>
+            </div>
+            <div>
+              <p class="m-0 text-xs text-surface-400 font-bold uppercase tracking-wider">{{ info.label }}</p>
+              <p class="m-0 mt-1 text-surface-900 dark:text-surface-0 font-semibold">{{ info.value }}</p>
+            </div>
+          </div>
+        }
+
+        <!-- Social -->
+        <div class="flex gap-3 mt-2">
+          @for (s of socialLinks; track s.icon) {
+            <a [href]="s.href"
+              class="w-10 h-10 rounded-full bg-surface-200 dark:bg-surface-700 flex items-center justify-center text-surface-500 dark:text-surface-300 hover:bg-primary-500 hover:text-white transition-all no-underline">
+              <i [class]="s.icon + ' text-sm'"></i>
+            </a>
+          }
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div [@fadeSlide]="lang()" class="lg:col-span-3">
+        <form (ngSubmit)="submitContact($event)"
+          class="bg-surface-0 dark:bg-surface-900 rounded-2xl p-8 border border-surface-200 dark:border-surface-700 shadow flex flex-col gap-5">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="flex flex-col gap-2">
+              <label class="text-xs font-semibold text-surface-600 dark:text-surface-300 uppercase tracking-wider">
+                {{ t().contact.form.name }}
+              </label>
+              <input pInputText type="text" required [(ngModel)]="contactForm.name" name="name"
+                class="w-full rounded-xl" />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label class="text-xs font-semibold text-surface-600 dark:text-surface-300 uppercase tracking-wider">
+                {{ t().contact.form.email }}
+              </label>
+              <input pInputText type="email" required [(ngModel)]="contactForm.email" name="email"
+                class="w-full rounded-xl" />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="text-xs font-semibold text-surface-600 dark:text-surface-300 uppercase tracking-wider">
+              {{ t().contact.form.subject }}
+            </label>
+            <select class="w-full rounded-xl border border-surface-300 dark:border-surface-600 bg-surface-0 dark:bg-surface-800 text-surface-900 dark:text-surface-0 px-4 py-3 text-sm"
+              [(ngModel)]="contactForm.subject" name="subject">
+              <option value="">—</option>
+              @for (opt of t().contact.form.subjectOptions; track opt) {
+                <option [value]="opt">{{ opt }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label class="text-xs font-semibold text-surface-600 dark:text-surface-300 uppercase tracking-wider">
+              {{ t().contact.form.message }}
+            </label>
+            <textarea pInputTextarea required rows="5" [(ngModel)]="contactForm.message" name="message"
+              class="w-full rounded-xl resize-none"></textarea>
+          </div>
+
+          <button pButton pRipple type="submit"
+            [label]="formStatus === 'sent' ? (lang() === 'pt' ? 'Mensagem enviada! ✓' : 'Message sent! ✓') : formStatus === 'sending' ? (lang() === 'pt' ? 'A enviar...' : 'Sending...') : t().contact.form.send"
+            [disabled]="formStatus !== 'idle'"
+            rounded
+            [class]="formStatus === 'sent' ? '!bg-green-500 !border-green-500 w-full' : 'w-full'">
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="bg-surface-900 dark:bg-surface-950 px-6 lg:px-20 py-14">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 mb-10 max-w-6xl mx-auto">
+
+      <div class="col-span-1 lg:col-span-2 flex flex-col gap-5">
+        <a class="flex items-center" href="#">
+          <img src="assets/logo_white_transparent.png" alt="Omnitech" class="h-9" />
+        </a>
+        <p class="text-surface-400 text-sm leading-relaxed max-w-xs m-0">
+          {{ t().footer.description }}
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <p class="text-surface-0 font-bold text-xs uppercase tracking-widest m-0">
+          {{ t().footer.services }}
+        </p>
+        <ul class="list-none m-0 p-0 flex flex-col gap-2">
+          @for (link of t().footer.serviceLinks; track link) {
+            <li>
+              <a href="#" class="text-surface-400 hover:text-primary-400 text-sm no-underline transition-colors">
+                {{ link }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <p class="text-surface-0 font-bold text-xs uppercase tracking-widest m-0">
+          {{ t().footer.company }}
+        </p>
+        <ul class="list-none m-0 p-0 flex flex-col gap-2">
+          @for (link of t().footer.companyLinks; track link) {
+            <li>
+              <a href="#" class="text-surface-400 hover:text-primary-400 text-sm no-underline transition-colors">
+                {{ link }}
+              </a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <p-divider styleClass="!border-surface-700" />
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-4 max-w-6xl mx-auto">
+      <p class="text-surface-500 text-sm m-0">
+        © {{ currentYear }} Omnitech. {{ t().footer.copy }}
+      </p>
+      <div class="flex gap-6">
+        <a href="#" class="text-surface-500 hover:text-primary-400 text-sm no-underline transition-colors">
+          {{ t().footer.terms }}
+        </a>
+        <a href="#" class="text-surface-500 hover:text-primary-400 text-sm no-underline transition-colors">
+          {{ t().footer.privacy }}
+        </a>
+        <a href="#" class="text-surface-500 hover:text-primary-400 text-sm no-underline transition-colors">
+          {{ t().footer.cookies }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
