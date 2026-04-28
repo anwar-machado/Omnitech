@@ -24,8 +24,8 @@ const translations = {
       pills: ['Websites & E-commerce', 'Sistemas à Medida', 'Marketing Digital', 'Suporte Técnico'],
     },
     stats: [
-      { value: '30+', label: 'Projetos' },
-      { value: '4 Anos', label: 'Experiência' },
+      { value: '120+', label: 'Projetos' },
+      { value: '8 Anos', label: 'Experiência' },
       { value: '98%', label: 'Satisfação' },
       { value: '24h', label: 'Suporte' },
     ],
@@ -75,7 +75,7 @@ const translations = {
         {
           type: 'Websites',
           tag: 'E-commerce',
-          title: 'Loja Multimarca Moz',
+          title: 'Loja Multimarca Angola',
           description: 'Plataforma de e-commerce com +800 SKUs, pagamento por Multicaixa Express e painel de gestão.',
           color: '#3B82F6',
         },
@@ -121,9 +121,9 @@ const translations = {
       title: 'Pronto para começar?',
       subtitle: 'Conte-nos o seu projeto. Respondemos em menos de 24 horas.',
       info: [
-        { icon: 'pi pi-map-marker', label: 'Localização', value: 'Moçambique, Maputo' },
-        { icon: 'pi pi-phone', label: 'Telefone', value: '+258 84 720 66 38' },
-        { icon: 'pi pi-envelope', label: 'E-mail', value: 'raymachado90@gmail.com' },
+        { icon: 'pi pi-map-marker', label: 'Localização', value: 'Luanda, Angola' },
+        { icon: 'pi pi-phone', label: 'Telefone', value: '+244 923 000 000' },
+        { icon: 'pi pi-envelope', label: 'E-mail', value: 'geral@omnitech.ao' },
       ],
       form: {
         name: 'Nome completo',
@@ -143,7 +143,7 @@ const translations = {
     },
     footer: {
       description:
-        'Software sob medida e soluções digitais completas — para empresas moçambicanas que querem crescer com tecnologia.',
+        'Software sob medida e soluções digitais completas — para empresas angolanas que querem crescer com tecnologia.',
       services: 'Serviços',
       company: 'Empresa',
       serviceLinks: ['Websites', 'E-commerce', 'Sistemas', 'Mobile', 'Suporte'],
@@ -176,8 +176,8 @@ const translations = {
       pills: ['Websites & E-commerce', 'Custom Systems', 'Digital Marketing', 'Tech Support'],
     },
     stats: [
-      { value: '30+', label: 'Projects' },
-      { value: '4 Yrs', label: 'Experience' },
+      { value: '120+', label: 'Projects' },
+      { value: '8 Yrs', label: 'Experience' },
       { value: '98%', label: 'Satisfaction' },
       { value: '24h', label: 'Support' },
     ],
@@ -227,7 +227,7 @@ const translations = {
         {
           type: 'Websites',
           tag: 'E-commerce',
-          title: 'Multi-brand Store Mozambique',
+          title: 'Multi-brand Store Angola',
           description: 'E-commerce platform with 800+ SKUs, Multicaixa Express payment and management dashboard.',
           color: '#3B82F6',
         },
@@ -273,9 +273,9 @@ const translations = {
       title: 'Ready to get started?',
       subtitle: 'Tell us about your project. We respond in less than 24 hours.',
       info: [
-        { icon: 'pi pi-map-marker', label: 'Location', value: 'Maputo, Mozambique' },
-        { icon: 'pi pi-phone', label: 'Phone', value: '+258 84 720 66 38' },
-        { icon: 'pi pi-envelope', label: 'Email', value: 'raymachado90@gmail.com' },
+        { icon: 'pi pi-map-marker', label: 'Location', value: 'Luanda, Angola' },
+        { icon: 'pi pi-phone', label: 'Phone', value: '+244 923 000 000' },
+        { icon: 'pi pi-envelope', label: 'Email', value: 'hello@omnitech.ao' },
       ],
       form: {
         name: 'Full name',
@@ -295,7 +295,7 @@ const translations = {
     },
     footer: {
       description:
-        'Custom software and complete digital solutions — for Mozambican businesses that want to grow with technology.',
+        'Custom software and complete digital solutions — for Angolan businesses that want to grow with technology.',
       services: 'Services',
       company: 'Company',
       serviceLinks: ['Websites', 'E-commerce', 'Systems', 'Mobile', 'Support'],
